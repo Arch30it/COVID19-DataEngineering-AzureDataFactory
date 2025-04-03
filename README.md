@@ -1,6 +1,5 @@
 # COVID19-DataEngineering-AzureDataFactory
 
-# **Azure Data Factory COVID-19 Reporting**
 
 ## **Project Overview**
 This project processes **COVID-19 data from ECDC** to generate **meaningful insights** using **Azure Data Factory, Azure Databricks, and Power BI**. The data undergoes **ingestion, transformation, and storage in Azure SQL Database** before being visualized for analytics.

@@ -33,9 +33,14 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 
 ## **Solution Architecture**
 1️ **Ingestion:** Load data from ECDC API & Azure Blob Storage → Azure Data Lake Gen2
+
 2️ **Transformation:** Clean, filter, aggregate, and pivot data using **ADF Data Flows & Databricks**
+
 3️ **Storage:** Store transformed data in **Azure SQL Database**
+
 4️ **Reporting:** Visualize insights in **Power BI Dashboards**
+
+![](https://github.com/Arch30it/COVID19-DataEngineering-AzureDataFactory/blob/main/project%20snaps/SOLUTION_ARCH.png)
 
 ---
 
@@ -65,12 +70,6 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 - **Derived Column:** Computes **7-day average & cumulative counts**
 - **Sort & Store:** Loads transformed data into **Azure SQL Database**
 
-#### **Hospital Admissions Data Transformation**
-- **Conditional Split:** Separates **daily vs weekly** hospital admissions
-- **Join:** Merges data with a **calendar dataset** to map reporting weeks
-- **Pivot:** Restructures data for easier aggregation
-- **Sort & Store:** Saves transformed data in **Azure SQL Database**
-
 #### **COVID-19 Testing Data Transformation**
 - **Derived Column:** Computes **test positivity rate (%)**
 - **Sort & Store:** Orders data before loading into **Azure SQL Database**
@@ -79,6 +78,17 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 - **Filter:** Retains only European population data
 - **Aggregation:** Sums population count per country
 - **Join:** Combines population data with cases for **per-capita analysis**
+
+![](https://github.com/Arch30it/COVID19-DataEngineering-AzureDataFactory/blob/main/project%20snaps/Screenshot%202025-04-03%20at%2012.21.01%E2%80%AFpm.png)
+
+
+#### **Hospital Admissions Data Transformation**
+- **Conditional Split:** Separates **daily vs weekly** hospital admissions
+- **Join:** Merges data with a **calendar dataset** to map reporting weeks
+- **Pivot:** Restructures data for easier aggregation
+- **Sort & Store:** Saves transformed data in **Azure SQL Database**
+
+![](https://github.com/Arch30it/COVID19-DataEngineering-AzureDataFactory/blob/main/project%20snaps/Screenshot%202025-04-03%20at%2011.36.00%E2%80%AFam.png)
 
 ---
 

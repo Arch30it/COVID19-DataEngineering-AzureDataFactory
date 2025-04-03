@@ -2,10 +2,10 @@
 
 # **Azure Data Factory COVID-19 Reporting**
 
-## ** Project Overview**
+## **Project Overview**
 This project processes **COVID-19 data from ECDC** to generate **meaningful insights** using **Azure Data Factory, Azure Databricks, and Power BI**. The data undergoes **ingestion, transformation, and storage in Azure SQL Database** before being visualized for analytics.
 
-## ** Objectives**
+## **Objectives**
 - Ingest raw COVID-19 data from **ECDC API & Azure Blob Storage**.
 - Perform **data cleaning, filtering, and transformations** using **ADF Data Flows & Databricks**.
 - Store **processed data** in **Azure SQL Database**.
@@ -13,7 +13,7 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 
 ---
 
-## ** Data Sources & Destination**
+## **Data Sources & Destination**
 | **Source**               | **Description** 
 |--------------------------|---------------
 | **ECDC API**             | Daily COVID-19 case & death reports 
@@ -24,7 +24,7 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 
 ---
 
-## ** Technologies Used**
+## **Technologies Used**
 - **Data Integration & Orchestration** → Azure Data Factory
 - **Data Transformation** → ADF Data Flows, Databricks (PySpark)
 - **Data Storage** → Azure SQL Database, Azure Data Lake Gen2
@@ -32,7 +32,7 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 
 ---
 
-## **🔗 Solution Architecture**
+## **Solution Architecture**
 1️ **Ingestion:** Load data from ECDC API & Azure Blob Storage → Azure Data Lake Gen2
 2️ **Transformation:** Clean, filter, aggregate, and pivot data using **ADF Data Flows & Databricks**
 3️ **Storage:** Store transformed data in **Azure SQL Database**
@@ -40,9 +40,9 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 
 ---
 
-## ** Data Processing Workflow**
+## **Data Processing Workflow**
 
-### **1️ Data Ingestion**
+### **1 Data Ingestion**
  **Datasets Ingested:**
 - **Cases & Deaths Data**
 - **Hospital Admissions Data**
@@ -57,33 +57,33 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 
 ---
 
-### **2️ Data Transformation**
+### **2 Data Transformation**
 
-#### ** Cases & Deaths Data Transformation**
+#### **Cases & Deaths Data Transformation**
 - **Filter:** Extracts only European countries
 - **Pivot:** Converts cases & deaths into separate columns
 - **Lookup:** Maps country names to country codes (ISO 2 & 3-digit codes)
 - **Derived Column:** Computes **7-day average & cumulative counts**
 - **Sort & Store:** Loads transformed data into **Azure SQL Database**
 
-#### ** Hospital Admissions Data Transformation**
+#### **Hospital Admissions Data Transformation**
 - **Conditional Split:** Separates **daily vs weekly** hospital admissions
 - **Join:** Merges data with a **calendar dataset** to map reporting weeks
 - **Pivot:** Restructures data for easier aggregation
 - **Sort & Store:** Saves transformed data in **Azure SQL Database**
 
-#### ** COVID-19 Testing Data Transformation**
+#### **COVID-19 Testing Data Transformation**
 - **Derived Column:** Computes **test positivity rate (%)**
 - **Sort & Store:** Orders data before loading into **Azure SQL Database**
 
-#### ** Population Data Transformation (Databricks - PySpark)**
+#### **Population Data Transformation (Databricks - PySpark)**
 - **Filter:** Retains only European population data
 - **Aggregation:** Sums population count per country
 - **Join:** Combines population data with cases for **per-capita analysis**
 
 ---
 
-### **3️ Data Storage (Azure SQL Database)**
+### **3 Data Storage (Azure SQL Database)**
  **Final Tables Created:**
 - `covid_cases_deaths`
 - `hospital_admissions`
@@ -92,7 +92,7 @@ This project processes **COVID-19 data from ECDC** to generate **meaningful insi
 
 ---
 
-### **4️ Reporting via Power BI**
+### **4 Reporting via Power BI**
 
  **Steps to Generate Reports:**
 1. **Connect Power BI to Azure SQL Database**
